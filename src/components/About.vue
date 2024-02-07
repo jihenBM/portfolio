@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const animateH2 = ref(false);
 const animateP = ref(false);
@@ -12,6 +14,31 @@ onMounted(() => {
     animateA.value = true;
   }, 500); // Adjust the delay as per your requirement
 });
+onMounted(() => {
+   gsap.registerPlugin(ScrollTrigger);
+  const trigger = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.anim-about',
+      start: "top 100%",
+      onEnter: () => {
+        // play the animation forward
+        trigger.play();
+      },
+    },
+  });
+  trigger.fromTo(
+    '.anim-about',
+    {
+      opacity: 0,
+      y: '30%',
+    },
+    {
+      opacity: 1,
+      y: '0%',
+      duration: 1, // Adjust the duration as needed
+    }
+  ); 
+})
 </script>
 
 <template>
@@ -34,7 +61,7 @@ onMounted(() => {
   <!--welcome-hero end -->
 
   <!--about start -->
-  <section id="about" class="about">
+  <section id="about" class="about anim-about">
     <div class="section-heading text-center">
       <h2>about me</h2>
     </div>
@@ -73,7 +100,7 @@ onMounted(() => {
           </div>
           <div class="col-sm-offset-1 img-wrapper col-lg-5 mx-auto ">
             <div class="single-about-img">
-              <img src="/images/about/profile_image.jpg" alt="profile_image">
+              <img src="/images/about/profile_image.webp" alt="profile_image" loading="lazy">
               <div class="about-list-icon">
                 <ul class="p-0">
 

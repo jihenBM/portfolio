@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--skills start -->
-    <section id="skills" class="skills">
+    <section id="skills" class="skills anim-skills" style="overflow: hidden;">
       <div class="skill-content">
         <div class="section-heading text-center">
           <h2>skills</h2>
@@ -36,7 +36,7 @@
           >
             <swiper-slide v-for="(item, index) in skills" :key="index">
               <div class="itemi d-flex justify-content-center">
-                <img :src="item.src" :alt="item.alt" />
+                <img :src="item.src" :alt="item.alt" loading="lazy" />
               </div>
             </swiper-slide>
           </swiper>
@@ -54,8 +54,10 @@
   </div>
 </template>
 <script >
+import { gsap } from "gsap";
 import { ref, onMounted } from 'vue'
 // Import Swiper Vue.js components
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules'
 // Import Swiper styles
@@ -91,7 +93,32 @@ export default {
     return {
       modules: [ EffectFade, Navigation, Pagination, Autoplay]
     }
-  }
+  },
+  mounted() {
+    gsap.registerPlugin(ScrollTrigger);
+     const trigger = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.anim-skills',
+        start: "top 100%",
+        onEnter: () => {
+          // play the animation forward
+          trigger.play();
+        },
+      },
+    });
+     trigger.fromTo(
+      '.anim-skills',
+      {
+        opacity: 0,
+        y: '30%',
+      },
+      {
+        opacity: 1,
+        y: '0%',
+        duration: 1, // Adjust the duration as needed
+      }
+    );
+  },
 }
 </script>
 <style>

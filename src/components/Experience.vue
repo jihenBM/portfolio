@@ -1,7 +1,7 @@
 <template lang="">
   <div>
     <!--experience start -->
-    <section id="experience" class="experience">
+    <section id="experience" class="experience anim-experience">
       <div class="section-heading text-center">
         <h2>experience</h2>
       </div>
@@ -84,6 +84,9 @@
   </div>
 </template>
 <script>
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default {
   data() {
     return {
@@ -119,7 +122,31 @@ export default {
         }]
     };
   },
-
+  mounted() {
+    gsap.registerPlugin(ScrollTrigger);
+    const trigger = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.anim-experience',
+        start: "top 100%",
+        onEnter: () => {
+          // play the animation forward
+          trigger.play();
+        },
+      },
+    });
+    trigger.fromTo(
+      '.anim-experience',
+      {
+        opacity: 0,
+        y: '30%',
+      },
+      {
+        opacity: 1,
+        y: '0%',
+        duration: 1, // Adjust the duration as needed
+      }
+    );
+  },
 };
 </script>
 <style>

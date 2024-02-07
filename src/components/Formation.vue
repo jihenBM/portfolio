@@ -2,7 +2,7 @@
 	<div>
 
 		<!--education start -->
-		<section id="education" class="education">
+		<section id="education" class="education anim-education">
 			<div class="section-heading text-center">
 				<h2>education</h2>
 			</div>
@@ -60,8 +60,35 @@
 	</div>
 </template>
 <script lang="ts">
-export default {
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+export default {
+	mounted() {
+		gsap.registerPlugin(ScrollTrigger);
+		const trigger = gsap.timeline({
+			scrollTrigger: {
+				trigger: '.anim-education',
+				start: "top 100%",
+				onEnter: () => {
+					// play the animation forward
+					trigger.play();
+				},
+			},
+		});
+		trigger.fromTo(
+			'.anim-education',
+			{
+				opacity: 0,
+				y: '30%',
+			},
+			{
+				opacity: 1,
+				y: '0%',
+				duration: 1, // Adjust the duration as needed
+			}
+		);
+	},
 };
 </script>
 <style scoped>

@@ -653,7 +653,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
     -o-transition: .5s;
     transition: .5s;
 }
-.isotope-overlay a {
+.isotope-overlay button {
     display: inline-block;
     color: #fff;
     font-size: 14px;
