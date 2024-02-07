@@ -13,7 +13,7 @@
                 <div class="item mb-4" @click="displayModal(videos[5])">
                   <div class="item-0">
                     <img
-                      :src="'<%= BASE_URL %>'+videos[5].src[0]"
+                      :src="'/portfolio'+videos[5].src[0]"
                       class="w-100 h-100 shadow-1-strong rounded"
                       alt="dari"
                       loading="lazy"
@@ -32,7 +32,7 @@
                 <div class="item mb-4" @click="displayModal(videos[1])">
                   <div class="item-1">
                     <img
-                      :src="'<%= BASE_URL %>'+videos[1].src[0]"
+                      :src="'/portfolio'+videos[1].src[0]"
                       class="w-100 shadow-1-strong rounded"
                       alt="herodot-website"
                       loading="lazy"
@@ -49,7 +49,7 @@
                 <div class="item mb-4" @click="displayModal(videos[2])">
                   <div class="item-1">
                     <img
-                      :src="'<%= BASE_URL %>'+videos[2].src[0]"
+                      :src="'/portfolio'+videos[2].src[0]"
                       class="w-100 shadow-1-strong rounded"
                       alt="rimexpert"
                       loading="lazy"
@@ -68,7 +68,7 @@
                 <div class="item mb-4" @click="displayModal(videos[3])">
                   <div class="item-0">
                     <img
-                      :src="'<%= BASE_URL %>'+videos[3].src[0]"
+                      :src="'/portfolio'+videos[3].src[0]"
                       class="w-100 shadow-1-strong rounded"
                       alt="ligne 13"
                       loading="lazy"
@@ -92,7 +92,7 @@
                 <div class="item mb-4" @click="displayModal(videos[4])">
                   <div class="item-0">
                     <img
-                      :src="'<%= BASE_URL %>'+videos[4].src[0]"
+                      :src="'/portfolio'+videos[4].src[0]"
                       class="w-100 h-100 shadow-1-strong rounded"
                       alt="aivataria"
                       style="object-fit: cover"
@@ -114,7 +114,7 @@
                 <div class="item mb-4" @click="displayModal(videos[0])">
                   <div class="item-1">
                     <img
-                      :src="'<%= BASE_URL %>'+videos[0].src[0]"
+                      :src="'/portfolio'+videos[0].src[0]"
                       class="w-100 shadow-1-strong rounded"
                       alt="metaowl"
                       loading="lazy"
@@ -161,11 +161,11 @@
                   :autoplay="index == 0"
                   loop
                 >
-                  <source :src="'<%= BASE_URL %>'+item" type="video/mp4" />
+                  <source :src="'/portfolio'+item" type="video/mp4" />
                 </video>
                 <img
                   class="img-modal"
-                  :src="'<%= BASE_URL %>'+item"
+                  :src="'/portfolio'+item"
                   :alt="item.title"
                   v-for="(item, index) in videoSelected.src"
                   :key="index"
