@@ -192,7 +192,7 @@
     </div>
   </section>
 </template>
-<script>
+<script lang="ts">
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -315,7 +315,7 @@ export default {
     )
   },
   methods: {
-    displayModal(videoSelected) {
+    displayModal(videoSelected: any) {
       this.toggleModal = !this.toggleModal
       this.videoSelected = videoSelected
       this.$emit('modalOpened')

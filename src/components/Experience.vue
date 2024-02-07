@@ -83,7 +83,7 @@
     <!--experience end -->
   </div>
 </template>
-<script>
+<script lang="ts">
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
