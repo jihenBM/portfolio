@@ -153,9 +153,10 @@
               />
             </div>
             <div class="body p-4">
-              <div class="d-flex gap-3 justify-content-center" :key="index">
+              <div class="d-flex gap-3 justify-content-center">
                 <video
                   v-for="(item, index) in videoSelected.videos"
+                  :key="index"
                   controls
                   :autoplay="index == 0"
                   loop
@@ -167,6 +168,7 @@
                   :src="item"
                   :alt="item.title"
                   v-for="(item, index) in videoSelected.src"
+                  :key="index"
                   v-if="['RimExpert'].includes(videoSelected.title)"
                 />
 

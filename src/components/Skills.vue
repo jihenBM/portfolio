@@ -55,7 +55,6 @@
 </template>
 <script lang="ts">
 import { gsap } from 'gsap'
-import { ref, onMounted } from 'vue'
 // Import Swiper Vue.js components
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Swiper, SwiperSlide } from 'swiper/vue'
