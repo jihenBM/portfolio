@@ -18,5 +18,4 @@ const app = createApp(App).component('font-awesome-icon', FontAwesomeIcon)
 app.use(vClickOutside)
 app.use(createPinia())
 app.use(router)
-
 app.mount('#app')

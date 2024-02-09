@@ -36,7 +36,7 @@
           >
             <swiper-slide v-for="(item, index) in skills" :key="index">
               <div class="itemi d-flex justify-content-center">
-                <img :src="'/portfolio'+ item.src" :alt="item.alt" loading="lazy" />
+                <img :src="'/portfolio' + item.src" :alt="item.alt" loading="lazy" />
               </div>
             </swiper-slide>
           </swiper>
