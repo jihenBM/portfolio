@@ -66,7 +66,7 @@ onMounted(() => {
               style="text-decoration: none"
               :class="{ animated: animateA, fadeInDown: animateA }"
               :style="{ opacity: animateA ? '1' : '0' }"
-              href="/download/cv-jihenBenMustapha.pdf"
+              href="/portfolio/download/cv-jihenBenMustapha.pdf"
               download
               >download resume</a
             >
