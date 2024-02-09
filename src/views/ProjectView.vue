@@ -1,5 +1,5 @@
 <template>
-  <section id="portfolio" class="d-flex align-items-center portfolio anim-portfolio">
+  <section id="portfolio" class="d-flex align-items-center portfolio anim-portfolio" >
     <div class="container">
       <div class="rounded bg-white w-100">
         <!--  -->
@@ -53,14 +53,15 @@
     </div>
   </section>
 </template>
-<script>
+<script lang="ts">
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useProjectStore } from '@/stores/projects'
 
 export default {
   mounted() {
-    this.project = this.store.projects[this.$route.params.index]
+    const indx = Number(this.$route.params.index)
+    this.project = this.store.projects[indx]
     gsap.registerPlugin(ScrollTrigger)
     const trigger = gsap.timeline({
       scrollTrigger: {
@@ -87,7 +88,7 @@ export default {
   },
   data() {
     return {
-      project: {},
+      project: Object as any,
       store: useProjectStore()
     }
   }
